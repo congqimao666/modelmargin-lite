@@ -10,6 +10,20 @@
   const value = (id) => Math.max(0, Number(document.getElementById(id).value) || 0);
   const money = (amount, digits) => Number.isFinite(amount) ? `$${amount.toFixed(digits)}` : "—";
 
+  function preserveCampaignAttribution() {
+    const current = new URLSearchParams(window.location.search);
+    const fields = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+
+    document.querySelectorAll("a[data-campaign-link]").forEach((link) => {
+      const target = new URL(link.href);
+      fields.forEach((field) => {
+        const campaignValue = current.get(field);
+        if (campaignValue) target.searchParams.set(field, campaignValue.slice(0, 100));
+      });
+      link.href = target.toString();
+    });
+  }
+
   function calculate() {
     const costRequest = value("inputTokens") / 1e6 * value("inputRate") +
       value("outputTokens") / 1e6 * value("outputRate");
@@ -49,5 +63,6 @@
 
   ids.forEach((id) => document.getElementById(id).addEventListener("input", calculate));
   form.addEventListener("reset", () => setTimeout(calculate, 0));
+  preserveCampaignAttribution();
   calculate();
 }());
