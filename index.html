@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI SaaS Unit Economics Calculator</title>
+  <meta name="description" content="Calculate per-request AI cost, contribution margin, break-even customers, and a target-margin price.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <span class="kicker">MODELMARGIN · FREE TOOL</span>
+      <h1>AI SaaS Unit Economics Calculator</h1>
+      <p>Enter your own current provider prices. Nothing is sent to a server; all calculations run in this browser.</p>
+    </header>
+
+    <section class="layout">
+      <form id="calculator" class="panel inputs">
+        <h2>Assumptions</h2>
+        <div class="fields">
+          <label>Input tokens / request<input id="inputTokens" type="number" min="0" step="100" value="2500"></label>
+          <label>Output tokens / request<input id="outputTokens" type="number" min="0" step="100" value="900"></label>
+          <label>Input cost / 1M tokens (USD)<input id="inputRate" type="number" min="0" step="0.01" value="3"></label>
+          <label>Output cost / 1M tokens (USD)<input id="outputRate" type="number" min="0" step="0.01" value="15"></label>
+          <label>Requests / customer / month<input id="requests" type="number" min="0" step="1" value="50"></label>
+          <label>Customer price (USD)<input id="customerPrice" type="number" min="0" step="0.01" value="19"></label>
+          <label>Payment fee (%)<input id="feePercent" type="number" min="0" max="100" step="0.1" value="4"></label>
+          <label>Payment fixed fee (USD)<input id="feeFixed" type="number" min="0" step="0.01" value="0.40"></label>
+          <label>Refund / loss allowance (%)<input id="refundRate" type="number" min="0" max="100" step="0.1" value="3"></label>
+          <label>Infra + support / customer<input id="infraCost" type="number" min="0" step="0.01" value="1"></label>
+          <label>Monthly fixed overhead (USD)<input id="fixedOverhead" type="number" min="0" step="1" value="25"></label>
+          <label>Target contribution margin (%)<input id="targetMargin" type="number" min="0" max="99" step="1" value="60"></label>
+        </div>
+        <button type="reset">Reset example</button>
+      </form>
+
+      <section class="panel results" aria-live="polite">
+        <h2>Economics</h2>
+        <div class="metric"><span>Model cost / request</span><strong id="costRequest">—</strong></div>
+        <div class="metric"><span>Model cost / customer</span><strong id="costCustomer">—</strong></div>
+        <div class="metric"><span>Contribution / customer</span><strong id="contribution">—</strong></div>
+        <div class="metric emphasis"><span>Contribution margin</span><strong id="margin">—</strong></div>
+        <div class="metric"><span>Break-even customers</span><strong id="breakEven">—</strong></div>
+        <div class="metric"><span>Price for target margin</span><strong id="targetPrice">—</strong></div>
+        <div class="metric"><span>Max requests at target margin</span><strong id="maxRequests">—</strong></div>
+        <p id="signal" class="signal"></p>
+      </section>
+    </section>
+
+    <section class="notes">
+      <h2>Use the output as a decision aid</h2>
+      <p>Provider prices, cached-token discounts, taxes, foreign exchange, chargebacks, and support workload change over time. Verify current inputs before every launch or pricing change.</p>
+      <p>This tool is educational and does not guarantee profit or replace accounting, tax, or legal advice.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
