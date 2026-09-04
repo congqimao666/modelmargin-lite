@@ -13,9 +13,9 @@ ModelMargin Lite helps answer practical questions such as:
 
 ## Try it
 
-- [Interactive product demo](https://modelmargin-kit.breezy-joy-3404.chatgpt.site/demo)
-- [Hosted free calculator](https://modelmargin-kit.breezy-joy-3404.chatgpt.site/calculator)
-- [Product overview](https://modelmargin-kit.breezy-joy-3404.chatgpt.site)
+- [Interactive product demo](https://modelmargin-kit.breezy-joy-3404.chatgpt.site/demo?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=modelmargin_lite)
+- [Hosted free calculator](https://congqimao666.github.io/modelmargin-lite/)
+- [Product overview](https://modelmargin-kit.breezy-joy-3404.chatgpt.site/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=modelmargin_lite)
 
 To run the calculator locally, download this repository and open `index.html`
 in a modern browser. It has no build step and sends no
@@ -31,7 +31,7 @@ OpenAI and Anthropic adapters, prepaid balances, actual-token metering, cost and
 margin controls, signed payment webhooks, admin metrics, tests, Docker files,
 deployment guidance, and a commercial-use license.
 
-[See the Universal kit and current offer](https://modelmargin-kit.breezy-joy-3404.chatgpt.site)
+[See the Universal kit and current offer](https://modelmargin-kit.breezy-joy-3404.chatgpt.site/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=modelmargin_lite)
 
 ## Important boundaries
 
